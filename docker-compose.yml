@@ -1,0 +1,20 @@
+version: "3"
+services:
+
+# LOADBALANCERS / REVERSE PROXIES
+  react:
+    build: ./web/react
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./web/react:/usr/src/app"
+    command: npm run dev
+    
+
+  # to start: docker-compose up
+
+  # Docker Commands:
+    # command: node ./dist/index.js
+    # docker stop $(docker ps -a -q)
+    # docker rm $(docker ps -a -q)
+    # docker rmi $(docker images -a -q)

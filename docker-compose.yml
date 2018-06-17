@@ -6,6 +6,7 @@ services:
     build: ./web/react
     ports:
       - "3000:3000"
+      - "4000:4000"
     volumes:
       - "./web/react:/usr/src/app"
     command: npm run dev

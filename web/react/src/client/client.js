@@ -18,11 +18,11 @@ const store = createStore(reducers, {}, applyMiddleware(thunk));
 // set up event handlers onto react code that was rendered from the server
 // basically allows front end js to work
 ReactDOM.hydrate(
-	<Provider store={store}>
+	// <Provider store={store}>
 		<BrowserRouter>
 			<Routes />
-		</BrowserRouter>
-	</Provider>,
+		</BrowserRouter>,
+	// </Provider>,
 	document.querySelector('#root')
 );
 

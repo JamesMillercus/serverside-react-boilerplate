@@ -6,14 +6,10 @@ const app = express();
 app.use(express.static('./build/client'));
 
 app.get('*', (req, res) => {
-
 	// set up the redux store on the server side
 	const store = createStore();
-
-	// initialise store
-
-	// res.send(renderer(req, store));
-	res.send(renderer(req));
+	// send initialised store to the renderer
+	res.send(renderer(req, store));
 });
 
 app.listen(3000, () => {

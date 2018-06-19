@@ -1,20 +1,16 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Routes from './../../client/Routes';
+import ServerRouter from './../../client/components/root/ServerRouter';
 
-// export default (req, store) => {
-export default (req) => {
+export default (req, store) => {
 	// load react components
 	const content = renderToString(
 		// connect the redux store to the react application
-		// <Provider store={store}>
-			// load in the url from express req and an empty object into context
-			<StaticRouter location = {req.path} context={{}}>
-				<Routes />
-			</StaticRouter>
-		// </Provider>
+		// send the route req and redux store to the react router
+		<Provider store={store}>
+			<ServerRouter req={req} store={store} />
+		</Provider>
 	);
 	// load front end js
 	return `

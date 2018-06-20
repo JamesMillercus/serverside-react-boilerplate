@@ -7,7 +7,7 @@ export default (state = [], action) => {
 	switch (action.type) {
 		//if actions.type is FETCH_USERS
 		case FETCH_USERS:
-			// give it data
+			// if action has data attached to it, then store the data
 			return action.payload.data;
 		default:
 			// else return state

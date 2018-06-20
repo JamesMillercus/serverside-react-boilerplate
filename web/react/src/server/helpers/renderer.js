@@ -1,7 +1,10 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import ServerRouter from './../../client/components/root/ServerRouter';
+// import ServerRouter from './../../client/components/root/ServerRouter';
+import { StaticRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import Routes from './../../client/Routes';
 
 export default (req, store) => {
 	// load react components
@@ -9,7 +12,9 @@ export default (req, store) => {
 		// connect the redux store to the react application
 		// send the route req and redux store to the react router
 		<Provider store={store}>
-			<ServerRouter req={req} store={store} />
+			<StaticRouter location = {req.path} context={{}}>
+				<div>{renderRoutes(Routes)}</div>
+			</StaticRouter>
 		</Provider>
 	);
 	// load front end js
@@ -18,6 +23,9 @@ export default (req, store) => {
 			<head> </head>
 			<body> 
 				<div id ="root">${content}</div>
+				<script> 
+					window.INITIAL_STATE = ${JSON.stringify(store.getState())}
+				</script>
 				<script src ="bundle.js"></script>
 			</body>
 		</html>

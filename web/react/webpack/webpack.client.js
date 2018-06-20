@@ -1,7 +1,8 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const webpack = require('webpack');
 
 const config = {
 	// Tell webpack the root file of our server application
@@ -25,11 +26,13 @@ const config = {
 	      },
 	      // plugin options
 	      {
-	        // prevent BrowserSync from reloading the page
-	        // and let Webpack Dev Server take care of this
+	        // allow BrowserSync to reload the page
 	        reload: true
 	      }
-	    )
+	    ),
+	    new webpack.DefinePlugin({
+	      __isBrowser__: "true"
+	    })
 	]
 };
 

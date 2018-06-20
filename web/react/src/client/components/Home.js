@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Home = () => {
-	return (
-		<div>
-			<div> I'm the best home component </div>
-			<button onClick={() => console.log('Hi there!')}>Press me!</button>
+class Home extends Component {
+  render() {
+    return (
+    	<div> 
+    		I'm the best home component
+    		<br />
+			<button onClick={() => console.log('Hi there!')}>
+				Press me!
+			</button>
 		</div>
-	);
+	)
+  }
 };
 
 export default Home;

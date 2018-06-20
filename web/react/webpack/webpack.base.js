@@ -6,6 +6,9 @@ module.exports = {
 				test: /\.js?$/, // only on js files
 				loader: 'babel-loader', // run babel with this loader
 				exclude: '/node_modules/', // do not run babel on files inside this directory
+				query: { 
+					compact: false 
+				},
 				options: {
 					presets: [
 						'react', // run react

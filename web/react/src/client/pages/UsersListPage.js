@@ -37,4 +37,7 @@ function loadData(store) {
 
 export { loadData };
 // Pass the state of fetchUsers into UsersList React Component
-export default connect(mapStateToProps, { fetchUsers })(UsersList);
+export default {
+	loadData,
+	component: connect(mapStateToProps, { fetchUsers })(UsersList)
+};

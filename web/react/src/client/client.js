@@ -12,14 +12,19 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 // React's DOM router
 import { BrowserRouter } from 'react-router-dom';
+// import http async
+import axios from 'axios';
 // React's render router functon
 import { renderRoutes } from 'react-router-config';
 // import routes
-import Routes from './Routes';
+import Routes from './routes/Routes';
 
-// set up the redux store on the client side
-const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
+const axiosInstance = axios.create({
+	baseURL: '/api'
+});
 
+// set up the redux store on the client side, with the state that has been sent from the server
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk.withExtraArgument(axiosInstance)));
 // set up event handlers onto react code that was rendered from the server
 // basically allows front end js to work
 ReactDOM.hydrate(

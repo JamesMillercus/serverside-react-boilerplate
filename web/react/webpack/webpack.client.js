@@ -6,11 +6,11 @@ const webpack = require('webpack');
 
 const config = {
 	// Tell webpack the root file of our server application
-	entry: './src/client/client.js',
+	entry: './src/client/js/client.js',
 	//  Tell webpack where to put the output file that is generated
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, './../build/client')
+		path: path.resolve(__dirname, './../build/client/js')
 	},
 	plugins: [
 	    new BrowserSyncPlugin(

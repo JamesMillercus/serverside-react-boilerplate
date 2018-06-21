@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 // import reducers from client
-import reducers from '../../client/reducers';
+import reducers from '../../client/js/reducers';
 
 export default req => {
 	const axiosInstance = axios.create({

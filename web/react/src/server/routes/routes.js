@@ -1,6 +1,6 @@
 // import routes
 import { matchRoutes } from 'react-router-config';
-import Routes from './../../client/routes/Routes';
+import Routes from './../../client/js/routes/Routes';
 import renderer from './../helpers/renderer';
 import createStore from './../helpers/createStore';
 

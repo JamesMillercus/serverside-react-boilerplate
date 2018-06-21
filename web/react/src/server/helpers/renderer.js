@@ -6,7 +6,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
-import Routes from './../../client/routes/Routes';
+import Routes from './../../client/js/routes/Routes';
 
 export default (req, store, context) => {
 	// load react components
@@ -34,7 +34,7 @@ export default (req, store, context) => {
 				<script> 
 					window.INITIAL_STATE = ${serialize(store.getState())}
 				</script>
-				<script src ="bundle.js"></script>
+				<script src ="/js/bundle.js"></script>
 			</body>
 		</html>
 	`;

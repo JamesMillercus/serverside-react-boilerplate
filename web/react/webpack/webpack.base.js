@@ -14,11 +14,7 @@ module.exports = {
 					],
 					compact: false 
 				}
-			},
-			{
-                test:/\.(s*)css$/,
-                use:['style-loader','css-loader', 'sass-loader']
-            }
+			}
 		]
 	} 
 };

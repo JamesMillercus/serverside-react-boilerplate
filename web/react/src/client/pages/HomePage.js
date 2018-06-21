@@ -4,10 +4,8 @@ class Home extends Component {
   render() {
     return (
     	<div> 
-    		<div> I'm the best home component </div>
-  			<button onClick={() => console.log('Hi there!')}>
-  				Press me!
-  			</button>
+    		<h3> Home page </h3>
+  			<p> Built in ssr React and Redux </p>
   		</div>
 	  )
   }

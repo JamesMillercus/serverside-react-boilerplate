@@ -2,17 +2,37 @@ const path = require('path');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const webpack = require('webpack');
 
 const config = {
 	// Tell webpack the root file of our server application
-	entry: './src/client/js/client.js',
+	entry: ['./src/client/client.js'],
 	//  Tell webpack where to put the output file that is generated
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, './../build/client/js')
 	},
+	module: {
+		rules: [
+			{
+				// the file extension you want to target
+				test: /\.scss$/,
+				// an array of loaders to be used top happens last, bottom happens first
+				use: [
+					{ loader: MiniCSSExtractPlugin.loader },
+					{ loader: "css-loader" }, 
+					{ loader: "sass-loader" }
+				]
+			}
+		]
+	},
 	plugins: [
+		new MiniCSSExtractPlugin({
+			filename: "../css/bundle.css"
+		}),
+		new OptimizeCssAssetsPlugin(),
 	    new BrowserSyncPlugin(
 	      // BrowserSync options
 	      {

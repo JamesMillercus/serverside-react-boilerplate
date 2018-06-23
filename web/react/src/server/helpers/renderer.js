@@ -1,12 +1,11 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-// import ServerRouter from './../../client/components/root/ServerRouter';
 import { StaticRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import serialize from 'serialize-javascript';
 import { Helmet } from 'react-helmet';
-import Routes from './../../client/js/routes/Routes';
+import Routes from './../../client/routes/Routes';
 
 export default (req, store, context) => {
 	// load react components
@@ -28,6 +27,7 @@ export default (req, store, context) => {
 			<head> 
 				${helmet.title.toString()}
 				${helmet.meta.toString()}
+			    <link rel="stylesheet" type="text/css" href="/css/bundle.css">
 			</head>
 			<body> 
 				<div id ="root">${content}</div>

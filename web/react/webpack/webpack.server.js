@@ -14,6 +14,11 @@ const config = {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, './../build/server')
 	},
+	module: {
+		rules: [
+	  		{ test: /\.scss$/, loader: 'ignore-loader' }
+		]
+	},
 	plugins: [
 		new webpack.DefinePlugin({
 	      __isBrowser__: "false"

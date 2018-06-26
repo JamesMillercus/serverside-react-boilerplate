@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './HomePage.scss';
+import './react.png';
 
 class Home extends Component {
   render() {
@@ -7,6 +8,7 @@ class Home extends Component {
     	<div className = "class"> 
     		<h3> Home page </h3>
   			<p> Built in ssr React and Redux </p>
+  			<img src="/assets/images/react.png" />
   		</div>
 	  )
   }

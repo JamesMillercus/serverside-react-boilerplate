@@ -25,6 +25,34 @@ const config = {
 					{ loader: "css-loader" }, 
 					{ loader: "sass-loader" }
 				]
+			},
+			{
+				// target images
+				test: /\.(jpg|gif|png)$/,
+				use: [
+					{
+						// 
+						loader: "file-loader",
+						options: {
+							// name the file in the name of the file + extnsion in images folder
+							name: "./../assets/images/[name].[ext]"
+						}
+					}
+				]
+			},
+			{
+				// target videos
+				test: /\.(mp4|mov)$/,
+				use: [
+					{
+						// 
+						loader: "file-loader",
+						options: {
+							// name the file in the name of the file + extnsion in images folder
+							name: "./../assets/videos/[name].[ext]"
+						}
+					}
+				]
 			}
 		]
 	},

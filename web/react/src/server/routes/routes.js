@@ -5,6 +5,7 @@ import renderer from './../helpers/renderer';
 import createStore from './../helpers/createStore';
 
 module.exports = (app) => {	
+
 	app.get('*', (req, res) => {
 		// set up the redux store on the server side
 		const store = createStore(req);
@@ -25,9 +26,9 @@ module.exports = (app) => {
 		Promise.all(promises).then(() => {
 			const context = {};
 			const content = renderer(req, store, context);
-			if(context.url) {
-				return res.redirect(301, context.url);
-			}
+			// if a url is loaded into the context then redirect to the url in the context
+			if(context.url) return res.redirect(301, context.url);
+			// if context has not found stored then respond with 404 error
 			if (context.notFound) res.status(404);
 			// send initialised store to the renderer
 			res.send(content);

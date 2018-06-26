@@ -10,9 +10,6 @@ services:
     volumes:
       - "./web/react:/usr/src/app"
     command: npm run dev
-    # command: npm install --save-dev ignore-loader
-
-    
 
   # to start: docker-compose up
 

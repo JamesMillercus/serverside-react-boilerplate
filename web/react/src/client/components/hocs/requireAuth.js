@@ -21,7 +21,6 @@ export default (ChildComponent) => {
 
 	// chech the auth state
 	function mapStateToProps({ auth }) {
-		// console.log(auth);
 		return { auth };
 	}
 

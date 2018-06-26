@@ -16,7 +16,7 @@ const config = {
 	},
 	module: {
 		rules: [
-	  		{ test: /\.scss$/, loader: 'ignore-loader' }
+	  		{ test: /\.(scss|png|jpg)$/, loader: 'ignore-loader' }
 		]
 	},
 	plugins: [

@@ -21,7 +21,7 @@ module.exports = (app) => {
 					promise.then(resolve).catch(resolve);
 				});
 			}
-		})
+		});
 		// once all our data requests have been completed
 		Promise.all(promises).then(() => {
 			const context = {};

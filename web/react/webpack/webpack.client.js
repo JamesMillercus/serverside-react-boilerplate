@@ -57,10 +57,6 @@ const config = {
 		]
 	},
 	plugins: [
-		new MiniCSSExtractPlugin({
-			filename: "../css/bundle.css"
-		}),
-		new OptimizeCssAssetsPlugin(),
 	    new BrowserSyncPlugin(
 	      // BrowserSync options
 	      {
@@ -78,6 +74,10 @@ const config = {
 	        reload: true
 	      }
 	    ),
+		new MiniCSSExtractPlugin({
+			filename: "../css/bundle.css"
+		}),
+		new OptimizeCssAssetsPlugin(),
 	    new webpack.DefinePlugin({
 	      __isBrowser__: "true"
 	    })

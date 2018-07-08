@@ -7,7 +7,7 @@
     "dev": "npm-run-all --parallel dev:*",
     "dev:build-server": "webpack --mode=development --config ./webpack/webpack.server.js --watch",
     "dev:build-client": "webpack --mode=development --config ./webpack/webpack.client.js --watch",
-    "dev:server": "nodemon --watch build --exec \"node ./build/server/bundle.js\"",
+    "dev:server": "nodemon --watch build/server --exec \"node ./build/server/bundle.js\"",
     "prod": "node ./build/server/bundle.js"
   },
   "author": "",
@@ -51,6 +51,7 @@
     "ignore-loader": "^0.1.2",
     "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^4.0.2",
+    "ua-parser-js": "^0.7.18",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack-cli": "^3.0.8"
   }
